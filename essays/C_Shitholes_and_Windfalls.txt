@@ -9,7 +9,7 @@ Differing from other programming languages like the BASIC and PASCAL, data type 
 Dim i As Integer ' BAISC does this.
 var i:Integer; (* PASCAL does this. *)
 Thus, it comes us with a phenomenon that once the complexity of data type increases, the head of a C sentence protrudes. Which is like:
-const int * const * int p;
+const int * const * p;
 A big sentence header brings us a conundrum. How could we explain such a declaration? Now, let us dissect it immediately.
 Suppose we have to define a char:
 char c = 'A';
