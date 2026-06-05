@@ -1,0 +1,172 @@
+C Shitholes and Windfalls
+
+Chapter 1.
+It is widely known that the C programming language is obfuscated by its users of inconsistent type nomenclatures.
+Admittedly, a neophyte C programmer may use it easily and feels pretty joyful for doing this:
+int i = 0; /* Isn't it a clarity? */
+The above sentence gives us a certitude function to allot a small piece of memory named i and set this memory into zero.
+Differing from other programming languages like the BASIC and PASCAL, data type always leads identifiers for C.
+Dim i As Integer ' BAISC does this.
+var i:Integer; (* PASCAL does this. *)
+Thus, it comes us with a phenomenon that once the complexity of data type increases, the head of a C sentence protrudes. Which is like:
+const int * const * int p;
+A big sentence header brings us a conundrum. How could we explain such a declaration? Now, let us dissect it immediately.
+Suppose we have to define a char:
+char c = 'A';
+And we don't want to alter the content of c at all, we write:
+const char c = 'A';
+We could define a const char in either way:
+char const c = 'A';
+If we tried to amend c, a C compiler would give us an error.
+c = 'B'; // Compiling error. Because c is a constant.
+In advance, we need a pointer which points to c, there we go:
+const char * pc = &c;
+What does this mean? First, (char) means this will be a character. Second, (const char) means that this char is a constant. Third, we are going to declare a pointer to this constant char, (const char *). Fourth, the pointer we declared to a constant character is named as pc. Fifth, we define pc as a pointer to a constant char and we set pc as the address of constant variable c. Thus once we tried to alter c through pc, a compiler error would be generated.
+*pc = 'B'; /* Compiler error. */
+Then what is about this?
+const char * const pc = &c;
+Let us bring our mind into reminiscence. We said, clearly, that, (const char * pc = &c;) was a definition about pc, and pc is a pointer to a constant character, and the very way to make pc constantly is to add const qualifier after (const char *), we got (const char * const).
+So far we made our endeavor in these voluble C sentences that we haven't make our minds clear. Anyhow, we understand the function of (const char * const).
+For (const char * const pc = &c;) we cannot:
+pc = NULL; /* Alter pc itself into NULL. */
+Neither can we:
+*pc = 'C'; /* Alter constant variable c through it's pointer pc. */
+Back to the beginning of all we have done here:
+const int * const * int p;
+It means we are about to declare a pointer to a constant integer, this pointer named p and pointer p is a constant pointer. Clear? Oh my Dennis Ritchie and Ken Thompson at al.
+Notwithstanding, said the creators of C, I have a few things against thee, because thou sufferest that variable p, which calleth itself a prophetess, to teach and to seduce my users to commit adulteration, and to eat reserved words sacrificed unto idols.
+And I gave you volatile const long long const * const * const * pp; to extricate your counterfeiting, and you explain not.
+
+Chapter 2.
+I pop my header outta the freaking shithole of C, now the program pours me a recursive type definition of tea.
+What I gonna do?
+To explain a function returns a pointer to a function?
+We are going to construct this, a function returns a function pointer to another function.
+#include <stdio.h>
+
+typedef int (*ft)(int, int);
+
+int f1(int a, int b)
+{
+	return a + b;
+}
+
+ft f2(void)
+{
+	return f1;
+}
+
+int main()
+{
+	int a;
+	a = f2()(1, 2);
+	printf("%d\n", a);
+	return 0;
+}
+In the above code, f1 is a function that takes two int parameters a and b, it adds a and b together and returns the sum. f2 is a function that is used to return a function pointer to f1. In the main function, we called f2. It writes, f2(). Notice that, f2 is the name of the function and it actually represents the address of this specific function starting in the main memory. If, I say, and only if we add a pair of parentheses at the tail of function name and address, this sentence becomes a function call immediately. So, f2; is not a function call rather to say it's an address. f2(); is not an address, it is exactly a function call. Then what we got after we called f2? A function pointer to f1 exactly. A function pointer stores the address of a function, when we add a little pair of parentheses after this address, guess what we got? A function call. We pass two int parameters 1 and 2 into this function call and it should return the sum of a and b and stores the sum to variable a. Finally, it prints 3.
+Rarely we see this form of writing, () follows another (). Actually, a function name and an address can be written in a pair of parenthesis to form a function pointer, after it tailed with another pair of parenthesis, we called it as a function.
+Is it possible to add pairs of parenthesis to call a function for any times?
+#include <stdio.h>
+
+typedef void (*t)(void);
+
+t foo(void)
+{
+	printf("Hello!\n");
+	return (t)foo;
+}
+
+int main()
+{
+	foo()();
+	return 0;
+}
+Let's assay the above sample of code. In function foo, it simply prints Hello! and returns foo's own address. Let's see function foo's return type. It is t. t is a function pointer that takes non parameters and returns nothing. In function main, we write foo()(), function main called function foo twice, furthermore, two lines of Hello! should appear on the screen. Additionally what is the reason for us that we have to convert foo into (t) before returning? Since, type ‘t’ {aka ‘void (* (*)(void))(void)’} is incompatible with foo's type ‘void (* (* (*)(void))(void))(void)’. foo automatically recurse another level of t.
+What about we write foo()()() other than foo();? Certainly, foo(); gives us one line of Hello! foo()(); give us two lines of Hello! Will foo()()(); give us triple lines of Hello?
+Unfortunately, no.
+foo() returns type t. t is a type of function pointers that returns void. void is not a function pointer that can be invoked by us.
+What if we just want foo()()() to return three lines of Hello? The answer is to alter the type definition sentence.
+typedef void (*(*t)(void))(void);
+
+t foo(void)
+{
+	printf("Hello!\n");
+	return (t)foo;
+}
+
+int main()
+{
+	(foo)()()();
+	return 0;
+}
+Can we write foo()()()(); to print hello four times? No. We can't exceed the recursive levels that we defined before. Is there a possibility to infinitely recursively define our function type t?
+I wanna tell you that typedef t (*(*t)(void))(void); is not going to work.
+I just want to infinitely recursive this type you said.
+OK, let me think awhile, and actually a structure has been emerged in my mind. Do you remember when we define a recursive structure like a linked list node, we usually use structures. By using structures, we can visit nodes like p->next->next->next->next... and so on. Here goes our code:
+#include <stdio.h>
+
+typedef struct st_st {
+	struct st_st (*bar)(void);
+} st;
+
+st bar(void)
+{
+	st s;
+	s.bar = bar;
+	printf("hello\n");
+	return s;
+}
+
+int main()
+{
+	bar().bar().bar().bar().bar().bar();
+	return 0;
+}
+Have you got the shot? bar().bar().bar().bar().bar().bar().bar();
+
+Chapter 3.
+Multi dimensional arrays give us a convenient tool to manage complicated hierarchy of main memories unless you are adept at it. By writing:
+int a[3];
+We defined a vector of array that contains 3 elements. What is the type of (a)? It is (int[3]). What is the type of (*a)? It is (int). What is the type of (a + 1)? It is (int *). Then what is the type of (&a). It is (int[3] *); OK, let's see:
+int a[6] = {1,2,3,4,5,6};
+int (*p)[3] = &a;
+Suppose we have defined the above codes. Now, solve the following ones one after another:
+printf("%d\n", &a == a);
+printf("%d\n", (&a + 1)[-1][0]);
+printf("%d\n", (*p)[1]);
+printf("%d\n", (*p + 1)[1]);
+printf("%d\n", (*(p + 1))[1]);
+printf("%d\n", *(*(p + 1)));
+So, you feel dizzying, puzzling, confusing, unconformable after frizzling cooling down your drizzling brain form these grilling codes. I understand. And I gonna give you something to pin these types down and figure these questions outta here.
+Let us just remember, a's type is (int[6]) and p's type is (int[3] *).
+In printf("%d\n", &a == a); a is of type (int[6]), undoubtedly, (&a) is of type (int[6] *). What I can tell you is the value of (&a) is actually equal to (a) but is not tantamount to (*a), because (*a) is of type (int). Briefly speaking, both (&a) and (a) are a same address of the first element in the array (a) that is (&a[0]). So, (&a == a) prints true.
+Let us tear down ((&a + 1)[-1][0]). Always remember that (a) is of type (int[6]). One step forward, (&a) is of type (int[6] *). Once we move (&a) which is of type (int[6] *) one step forward, we add a's address by sizeof(int[6]). Now the pointer now points here.
+|1|2|3|4|5|6|
+^           ^
+a          (&a + 1)
+(&a + 1) is also of type (int[6] *). After we indexing (&a + 1) by [-1], that is equivalent to (&a + 1 - 1). Plus a further indexing [0], we got an answer of 1, the first exact element of array a.
+In printf("%d\n", (*p)[1]); p is of type (int[3] *). (*p) is of type (int [3]). After indexing (*p) by [1], we got 2.
+In printf("%d\n", (*p + 1)[1]); p is of type (int[3] *). (*p) is of type (int [3]). (*p + 1) degrades the pointer to (int *) and simultaneously points to element 2 in array a, and indexed with [1] we got 3.
+In printf("%d\n", (*(p + 1))[1]); p is of type (int[3] *). (p + 1) moves the pointer sizeof(int[3]) memory blocks forward. By dereferencing (p + 1), we now have a type (int[3]). Further dereferencing it by 1 index forward, we got 5 from element 4.
+printf("%d\n", *(*(p + 1))); p is of type (int[3] *). (p + 1) moves the pointer sizeof(int[3]) memory blocks forward. By dereferencing (p + 1), we now have a type (int[3]). Further dereferencing it, we got 4.
+Do you feel fatigued? No matter what you felt, I feel fatigued to elucidate these expressions anyway.
+Let us solve some more soluble ones.
+
+int a[2][2] = {1,2,3,4};
+printf("%d\n" a[1][0]);
+printf("%d\n" 0[a[1]]);
+printf("%d\n" 1[0[a]]);
+printf("%d\n" 0[1[a]]);
+printf("%d\n" (a[1])[0]);
+Please bear in mind that if we have an array int a[3] = {1,2,3}; (a[2]) is equivalent to (2[a]) but not equivalent to ([a]2), ([a]2) is grammatically error. Then we see how our two dimensional array was being initialized:
+1 2
+3 4
+(a[1][0]) points to row 1 and column 0 at element 3.
+(0[a[1]]) points to either row 1 and column 0 at element 3.
+(1[0[a]]) points to row 0 and column 1 at element 2.
+(0[1[a]]) points to row 1 and column 0 at element 3.
+((a[1])[0]) points exactly the same element to (a[1][0]) points that is 3.
+
+Jun 5th 2026. 0800AM.
+John Cage.
+
