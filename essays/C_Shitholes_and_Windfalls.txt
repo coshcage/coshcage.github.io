@@ -32,7 +32,7 @@ pc = NULL; /* Alter pc itself into NULL. */
 Neither can we:
 *pc = 'C'; /* Alter constant variable c through it's pointer pc. */
 Back to the beginning of all we have done here:
-const int * const * int p;
+const int * const * p;
 It means we are about to declare a pointer to a constant integer, this pointer named p and pointer p is a constant pointer. Clear? Oh my Dennis Ritchie and Ken Thompson at al.
 Notwithstanding, said the creators of C, I have a few things against thee, because thou sufferest that variable p, which calleth itself a prophetess, to teach and to seduce my users to commit adulteration, and to eat reserved words sacrificed unto idols.
 And I gave you volatile const long long const * const * const * pp; to extricate your counterfeiting, and you explain not.
