@@ -123,6 +123,9 @@ a + ((b - a) >> 1) =	0
 (a + b) >> 1 =	0
 (c + d) >> 1 =	129
 
+Admittedly, we can say that if a = 127 and b = 130, (a + b) >> 1 = 0 overflows because 0 locates out of a viable scope. But, please do not forget that for expression (a + b) >> 1, we need an addition and a right shift operator that can be much faster than we use the expression a + ((b - a) >> 1); because we used an addition, a right shift and furthermore a subtraction in the latter expression.
+In a word, (a + b) >> 1 is always a good way for engineering.
+
 References:
 https://blog.csdn.net/za30312/article/details/89442438
 https://blog.csdn.net/luzhensmart/article/details/101039406
