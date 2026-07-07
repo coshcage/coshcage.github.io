@@ -1,0 +1,132 @@
+The Critique of Median Calculation
+
+Author: John Immanuel Darwin Cage.
+
+After the invention of binary search algorithm, the way used to calculate the median value aroused a severe battle among programmers. Some people say (l + r) / 2 is the correct way, while others think l + (r - l) / 2 is the most righteous method. I truly support the former way. Here is the reason.
+
+Let us make deep comprehension of the expression l + (r - l) / 2 and I will tell you why this expression cannot avoid any overflow issue.
+
+The first step I will show you is to make a certain dimension of the variable l and r. Let us define both l and r belong to [0, 9]. Notice that this is a closed interval. And we assume both l and r are integers, thus no matter which calculations we perform on l and r, +, - or / are operated on integers which belong to [0, 9].
+
+0 1 2 3 4 5 6 7 8 9
+  ^   ^   ^
+  l   m   r
+
+We assign 1 to l and 5 to r which makes l = 1 and r = 5. Then we substitute l and r into our two expressions, we get:
+
+(l + r) / 2
+-> (1 + 5) / 2
+-> 3
+
+l + (r - l) / 2
+-> 1 + (5 - 1) / 2
+-> 3
+
+For this circumstance, both median values of the results of two expressions locate into our former defined interval. We next assign 9 to l and 9 to r, thus l = 9 and r = 9. We substitute them again.
+
+(l + r) / 2
+-> (9 + 9) / 2
+-> 9
+
+l + (r - l) / 2
+-> 9 + (9 - 9) / 2
+-> 9
+
+We expand our interval to 0 to arbitrary natural number, thus [0, n].
+
+(l + r) / 2
+-> (n + n) / 2
+-> n
+
+l + (r - l) / 2
+-> n + (n - n) / 2
+-> n
+
+Than we further expand our interval to any negative integer to 0, thus [m, 0].
+
+(l + r) / 2
+-> (m + m) / 2
+-> m
+
+l + (r - l) / 2
+-> m + (m - m) / 2
+-> m
+
+Until now, both two results of expression (l + r) / 2 and l + (r - l) / 2 can never overflow that is beyond our previously defined interval. However, we will see a quiet different result when we expand our interval to any integers m and n, thus [m, n].
+We make some constrains for given integers m and n:
+
+Constraints:
+Lemma 1: l = n
+Lemma 2: r = m
+Lemma 3: n >= m
+
+Proof 1:
+(l + r) / 2 -> (n + m) / 2
+	if n > 0 and m > 0 than
+		m <= (n + m) / 2 <= n
+	
+	if n > 0 and m < 0 than
+		m <= (n + m) / 2 <= n
+	
+	if n < 0 and m < 0 than
+		m <= (n + m) / 2 <= n
+
+Proof 2:
+l + (r - l) / 2 -> n + (m - n) / 2
+	If we want to proof n <= n + (m - n) / 2 <= m, than we must proof:
+	n <= n + (m - n) / 2
+	-> 0 <= (m - n) / 2
+	-> 0 <= m - n
+	-> n <= m
+	Notice that n <= m contradicts Lemma 3.
+	Thus we do not need further proof n + (m - n) / 2 <= m
+	It is sure that the result of expression l + (r - l) / 2 cannot fall into [m, n]
+
+	Let us proof n + (m - n) / 2 <= m anyhow.
+	n + (m - n) / 2 <= m
+	-> (m - n) / 2 <= m - n
+	-> m - n <= 2m - 2n
+	-> 2m - 2n >= m - n
+	-> 2m - m >= 2n - n
+	-> m >= n
+	However since n <= m contradicts Lemma 3 in the previous proof, we can sure the result of expression l + (r - l) / 2 cannot fall into [m, n]
+
+In conclusion, proof 1 shows (l + r) / 2 can never overflow, but proof 2 shows l + (r - l) / 2 might overflow.
+
+Let us put our conclusion into reality and engineering to write the following codes in C programming language and compile it:
+
+#include <stdio.h>
+
+typedef signed char T;
+
+int main()
+{
+	T a = 127, b = 130;
+	int c = 129, d = 130;
+	printf("a = %d, b = %d\n", a, b);
+	printf("c = %d, d = %d\n", c, d);
+	printf("\n");
+	printf("(T)((T)a + (T)((T)((T)b - (T)a) >> (T)1)) =\t%d\n", (T)((T)a + (T)((T)((T)b - (T)a) >> (T)1)));
+	printf("a + ((b - a) >> 1) =\t%d\n", a + ((b - a) >> 1));
+	printf("(a + b) >> 1 =\t%d\n", (a + b) >> 1);
+	printf("(c + d) >> 1 =\t%d\n", (c + d) >> 1);
+	return 0;
+}
+
+We have a possible result as follows:
+
+a = 127, b = -126
+c = 129, d = 130
+
+(T)((T)a + (T)((T)((T)b - (T)a) >> (T)1)) =	-128
+a + ((b - a) >> 1) =	0
+(a + b) >> 1 =	0
+(c + d) >> 1 =	129
+
+References:
+https://blog.csdn.net/za30312/article/details/89442438
+https://blog.csdn.net/luzhensmart/article/details/101039406
+https://cloud.tencent.com/developer/article/2373808
+https://blog.51cto.com/u_15310543/3163192
+https://blog.51cto.com/u_7461522/4746229
+
