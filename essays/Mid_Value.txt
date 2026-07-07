@@ -89,7 +89,7 @@ l + (r - l) / 2 -> n + (m - n) / 2
 	-> 2m - 2n >= m - n
 	-> 2m - m >= 2n - n
 	-> m >= n
-	However since n <= m contradicts Lemma 3 in the previous proof, we can sure the result of expression l + (r - l) / 2 cannot fall into [m, n] exactly.
+	However, since n <= m contradicts Lemma 3 in the previous proof, we can sure the result of expression l + (r - l) / 2 cannot fall into [m, n] exactly.
 
 In conclusion, proof 1 shows (l + r) / 2 can never overflow, but proof 2 shows l + (r - l) / 2 might overflow.
 
