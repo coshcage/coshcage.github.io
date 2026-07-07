@@ -52,7 +52,7 @@ l + (r - l) / 2
 -> m + (m - m) / 2
 -> m
 
-Until now, both two results of expression (l + r) / 2 and l + (r - l) / 2 can never overflow that is beyond our previously defined interval. However, we will see a quiet different result when we expand our interval to any integers m and n, thus [m, n].
+Until now, both two results of expression (l + r) / 2 and l + (r - l) / 2 can never overflow that is beyond our previously defined interval. However, we will see a quiet different result when we are expanding our interval to any integers m and n, thus [m, n].
 We make some constrains for given integers m and n:
 
 Constraints:
