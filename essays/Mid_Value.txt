@@ -42,7 +42,7 @@ l + (r - l) / 2
 -> n + (n - n) / 2
 -> n
 
-Than we further expand our interval to any negative integer to 0, thus [m, 0].
+Then we further expand our interval to any negative integer to 0, thus [m, 0].
 
 (l + r) / 2
 -> (m + m) / 2
@@ -62,25 +62,25 @@ Lemma 3: n >= m
 
 Proof 1:
 (l + r) / 2 -> (n + m) / 2
-	if n > 0 and m > 0 than
+	if n > 0 and m > 0 then
 		m <= (n + m) / 2 <= n
 	
-	if n > 0 and m < 0 than
+	if n > 0 and m < 0 then
 		m <= (n + m) / 2 <= n
 	
-	if n < 0 and m < 0 than
+	if n < 0 and m < 0 then
 		m <= (n + m) / 2 <= n
 
 Proof 2:
 l + (r - l) / 2 -> n + (m - n) / 2
-	If we want to proof n <= n + (m - n) / 2 <= m, than we must proof:
+	If we want to proof n <= n + (m - n) / 2 <= m, then we must proof first:
 	n <= n + (m - n) / 2
 	-> 0 <= (m - n) / 2
 	-> 0 <= m - n
 	-> n <= m
 	Notice that n <= m contradicts Lemma 3.
-	Thus we do not need further proof n + (m - n) / 2 <= m
-	It is sure that the result of expression l + (r - l) / 2 cannot fall into [m, n]
+	Thus we do not need further proof n + (m - n) / 2 <= m.
+	It is sure that the result of expression l + (r - l) / 2 cannot fall into [m, n].
 
 	Let us proof n + (m - n) / 2 <= m anyhow.
 	n + (m - n) / 2 <= m
@@ -89,7 +89,7 @@ l + (r - l) / 2 -> n + (m - n) / 2
 	-> 2m - 2n >= m - n
 	-> 2m - m >= 2n - n
 	-> m >= n
-	However since n <= m contradicts Lemma 3 in the previous proof, we can sure the result of expression l + (r - l) / 2 cannot fall into [m, n]
+	However since n <= m contradicts Lemma 3 in the previous proof, we can sure the result of expression l + (r - l) / 2 cannot fall into [m, n] exactly.
 
 In conclusion, proof 1 shows (l + r) / 2 can never overflow, but proof 2 shows l + (r - l) / 2 might overflow.
 
