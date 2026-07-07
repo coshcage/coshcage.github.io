@@ -6,7 +6,7 @@ After the invention of binary search algorithm, the way used to calculate the me
 
 Let us make deep comprehension of the expression l + (r - l) / 2 and I will tell you why this expression cannot avoid any overflow issue.
 
-The first step I will show you is to make a certain dimension of the variable l and r. Let us define both l and r belong to [0, 9]. Notice that this is a closed interval. And we assume both l and r are integers, thus no matter which calculations we perform on l and r, +, - or / are operated on integers which belong to [0, 9].
+The first step I will show you is to make a certain dimension of the variable l and r. Let us define both l and r belong to [0, 9]. Notice that this is a closed interval. And we assume both l and r are integers, thus no matter which calculation we perform on l and r, +, - or / are operated on integers which should belong to [0, 9], otherwise we call it an overflow.
 
 0 1 2 3 4 5 6 7 8 9
   ^   ^   ^
@@ -32,7 +32,7 @@ l + (r - l) / 2
 -> 9 + (9 - 9) / 2
 -> 9
 
-We expand our interval to 0 to arbitrary natural number, thus [0, n].
+We expand our interval to 0 to arbitrary natural number, thus [0, n], we have:
 
 (l + r) / 2
 -> (n + n) / 2
@@ -106,10 +106,10 @@ int main()
 	printf("a = %d, b = %d\n", a, b);
 	printf("c = %d, d = %d\n", c, d);
 	printf("\n");
-	printf("(T)((T)a + (T)((T)((T)b - (T)a) >> (T)1)) =\t%d\n", (T)((T)a + (T)((T)((T)b - (T)a) >> (T)1)));
-	printf("a + ((b - a) >> 1) =\t%d\n", a + ((b - a) >> 1));
-	printf("(a + b) >> 1 =\t%d\n", (a + b) >> 1);
-	printf("(c + d) >> 1 =\t%d\n", (c + d) >> 1);
+	printf("(T)((T)a + (T)((T)((T)b - (T)a) >> (T)1)) = %d\n", (T)((T)a + (T)((T)((T)b - (T)a) >> (T)1)));
+	printf("a + ((b - a) >> 1) = %d\n", a + ((b - a) >> 1));
+	printf("(a + b) >> 1 = %d\n", (a + b) >> 1);
+	printf("(c + d) >> 1 = %d\n", (c + d) >> 1);
 	return 0;
 }
 
@@ -118,13 +118,13 @@ We have a possible result as follows:
 a = 127, b = -126
 c = 129, d = 130
 
-(T)((T)a + (T)((T)((T)b - (T)a) >> (T)1)) =	-128
-a + ((b - a) >> 1) =	0
-(a + b) >> 1 =	0
-(c + d) >> 1 =	129
+(T)((T)a + (T)((T)((T)b - (T)a) >> (T)1)) = -128
+a + ((b - a) >> 1) = 0
+(a + b) >> 1 = 0
+(c + d) >> 1 = 129
 
-Admittedly, we can say that if a = 127 and b = 130, (a + b) >> 1 = 0 overflows because 0 locates out of a viable scope. But, please do not forget that for expression (a + b) >> 1, we need an addition and a right shift operator that can be much faster than we use the expression a + ((b - a) >> 1); because we used an addition, a right shift and furthermore a subtraction in the latter expression.
-In a word, (a + b) >> 1 is always a good way for engineering.
+Admittedly, we can say that if a = 127 and b = 130 then (a + b) >> 1 = 0 overflows because 0 locates out of a viable scope therefor (a + b) / 2 cannot always guarantee the result never overflows. But, please do not forget that for using the expression (a + b) >> 1, we need an addition and a right shift operator that can be much faster than we are using the expression a + ((b - a) >> 1); because we are using an addition, a right shift and furthermore a subtraction in the latter expression.
+In a word, (a + b) / 2 is always a better way than a + (b - a) / 2 for engineering.
 
 References:
 https://blog.csdn.net/za30312/article/details/89442438
