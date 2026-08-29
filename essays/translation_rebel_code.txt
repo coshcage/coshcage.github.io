@@ -1,0 +1,16 @@
+This is an excerpt from the book Rebel Code: The Inside Story of Linux and the Open Source Revolution and its Chinese translation unlicensed published.
+
+Outside, a lowering Seattle sky broods over the clumps of squat white buildings scattered around an extensive campus in constant expansion.
+Neat lawns, assiduously tended flowerbeds, and the tidy ornamental ponds create a mood of cloistered reflection and tranquility.
+
+Inside, a similar calm reigns in the cubicles where young men and women toil diligently. The silence is broken only by bursts of clattering keys; hardly a word is exchanged, as if a stern vow were in force. And yet despite a conducive environment and comforting faith, there is unease among the cubicles' inhabitants, a rising tide of something close to fear. They know that a terrible ghost is abroad in the cloisters of Microsoft.
+
+The ghost has a name: open source. Its characteristics have been meticulously detailed by two of the company's expert ghost-watchers in a pair of lengthy memos. Though marked "Microsoft confidential," they surfaced outside the company and were published on the Web, suitably enough during Halloween 1998. Forced to concede that the memos did indeed originate from within the company, Microsoft dismissed them as the private speculations of a couple of engineers.
+
+As he read the memos describing this crazy phenomenon. Bill Gates must have shuddered in recognition; it was as if a spirit from the past had tapped him on the shoulder. Gates has sought to exorcise the ghost of free software over twenty years before.
+
+  在外，西雅图上空低垂的云朵覆盖着的，是那一座座低矮的白色建筑。它们就在那绵延的校舍间分散着。其间，青青草地默默地滋养着蓓蕾们。波光闪烁的池塘点缀出了修道院回廊般的寂静氛围。
+  在内，被同样寂静笼罩着的办公隔间内，是正在勤奋不惜劳作着的年青男女们。阵阵键盘敲击声打破了这份宁静。此时，未曾有人交头接耳，却是因为每人都在行使着那份不屈的誓言。纵使有那优渥的环境和这份令人欣慰的信仰，在这些隔间原住民之间躁动着的是愈来愈近的不安。他们深知微软大院内的一只可怖的鬼魂正呼之欲出。
+  这个鬼魂有个响当当的名字：开源。微软公司内的两名专职审鬼人手中的备忘录上，开源软件的方方面面与角角落落正在被越记越长。尽管这些资料被标记为“商业机密”，他们还是从微软公司的深潭中浮出水面，并于1998年的万圣节被分毫不差地公开到了网上。几经查证，微软被迫承认了这些备忘录恰恰出自其公司内部，接着，微软就解散了这对儿自说自话投机取巧的工程师。
+  阅后，比尔盖茨一定被这些备忘录中所描述的疯狂现象吓得浑身战栗。就好像一只来自过去的幽灵将它的大手搭在了比尔的肩膀上。盖茨不得不想着给这个来自20年前的自由软件之魂驱驱魔。
+
