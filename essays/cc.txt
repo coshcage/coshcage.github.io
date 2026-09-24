@@ -1,0 +1,27 @@
+Cage's Cage
+This is my route table to github, let us see who blocked me to publish StoneValley?
+What they have done to me?
+ISP knows my social ID and home address here since you have to register your real ID before connecting to the internet.
+I published a security patch to StoneValley that had been blocked for a couple of hours.
+Saying something no to this STATE incurs police trail and jail.
+Once I said NO Great Fire Wall.
+ 
+traceroute to github.com (20.205.243.166), 30 hops max, 60 byte packets
+ 1  _gateway (192.168.1.1)  0.672 ms  0.768 ms  1.140 ms
+ 2  * * *
+ 3  * * *
+ 4  * * *
+ 5  222.72.236.126 (222.72.236.126)  7.941 ms 222.72.236.194 (222.72.236.194)  12.143 ms 222.72.237.118 (222.72.237.118)  7.389 ms
+ 6  202.97.24.138 (202.97.24.138)  7.682 ms 202.97.57.145 (202.97.57.145)  5.913 ms *
+ 7  202.97.39.197 (202.97.39.197)  7.186 ms 202.97.39.173 (202.97.39.173)  7.128 ms 202.97.12.201 (202.97.12.201)  6.817 ms
+ 8  202.97.43.134 (202.97.43.134)  34.491 ms 202.97.43.70 (202.97.43.70)  34.938 ms 202.97.88.250 (202.97.88.250)  31.625 ms
+ 9  * 203.215.237.42 (203.215.237.42)  46.252 ms *
+10  ae25-0.icr01.tyo31.ntwk.msn.net (104.44.235.96)  36.217 ms * *
+11  * be100.ibr01.tyo30.ntwk.msn.net (104.44.20.29)  83.796 ms be100.ibr01.tyo31.ntwk.msn.net (104.44.20.39)  95.656 ms
+12  * 51.10.42.49 (51.10.42.49)  93.250 ms *
+13  * * *
+
+I have more evidence.
+
+John Cage.
+
