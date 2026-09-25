@@ -1,4 +1,5 @@
 Cage's Cage
+
 This is my route table to github, let us see who blocked me to publish StoneValley?
 What they have done to me?
 ISPs know my social ID and home address here since you have to register your real ID before connecting to the internet.
@@ -64,11 +65,11 @@ Then they blocked website and media. www.bbc.com, www.wikipedia.org, pinterest e
 They further blocked search engines like duckduckgo and perplex.
 Third they blocked computer techniques like DoT(DNS over TLS), docker, tor etc.
 They blocked notepad-plus-plus.org which is a website that is hosted to publish a freeware, they blocked it for their 'political' concern.
-Forth they began to block foreign administrations like www.cia.gov. Once they have blocked www.navy.mil by unselecting and contaminating DNS list from Chinese governmental authorized DNS servers.
+Fourth they began to block foreign administrations like www.cia.gov. Once they have had blocked www.navy.mil by unselecting and contaminating DNS list from Chinese governmental authorized DNS servers.
 ...
 
 Meanwhile, their propaganda machine began to work.
-During the COVID 19 pandemic, governmental leaded media began to boost 'Healthy Code' which was actually QR-code that invented by Japanese that they said this code exerted excellently to heal national wide pandemic. In my opinion, actually, so called 'Healthy Code' was used to track and lock citizens' trip only.
+During the COVID-19 pandemic, governmental leaded media began to boost 'Healthy Code' which was actually QR-code that invented by Japanese that they said this code was exerted excellently to heal national wide pandemic. In my opinion, actually, so called 'Healthy Code' was used to track and lock citizens' trip only.
 Then their media began to make speeches that the United States government failed to fight against that pedantic that caused a severe causality to US citizens.
 Probably just because they want to revenge for some US politicians said COVID-19 was 'China disease' which was actually out broken from China and then made a global spread.
 
