@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Transmission Formula - A Simple Way To Calculate Transmission Gear Ratio</h2>
+<p></p>
+<h3>1. Scenario</h3>
+<p></p>
+<p>This is the first time I use English to introduce a way to calculate transmission gear ratio in a gear box although I have no experience to interpret mechanic in English. As a methodology to treat realities into understanding, like the Venn Diagram which is used to understand naive set theory and the Karnaugh Map simplifying up to 4 boolean variable expressions, I called this way Transmission Formula that is used to let us quickly tally gear transmission ratios. You can call it John formula as you wish.</p>
+<p></p>
+<h3>2. Definition</h3>
+<p></p>
+<p>Firstly let us learn how gears work. A gear is typically a round cylindrical plate with teeth circumscribe it's circumference. When a gear turns, it's teeth pass the force to anther gear's teeth to let the other turns. I call the former gear the prime mover, and the second gear the driven gear. If the prime mover has 18 teeth and the driven gear has 6 teeth, when the prime mover turns around for a circle, the driven gear turns exactly 3 times around. I call this two gear system the minimal gear to gear transmission system written as (A,18)(B,6) whereas A is the prime mover and B is the driven gear. In the circumstance that we add a chain between two gears to let them move, it is as the same as the former two gear system. Because a chain will not alter any gear's linear velocity when they are working together. Moreover, if gear A turns clockwise, gear B turns counter clockwise exactly.</p>
+<p></p>
+<p>A planet gear group has the same theory as this gear to gear system. Suppose the sun gear A is the prime mover, the planet gear B is the driven gear. If sun gear has 18 teeth and the planet gear has 6 teeth, gear A turns around 1 time, gear B turns around 3 times.</p>
+<p></p>
+<p>Second, let us learn a gear-shaft-gear system. Suppose we have a gear A which is connected to a shaft B. On the other side of the shaft B, it connects another gear called C. See Figure 2.1.</p>
+<p></p>
+<pre style="font-family:courier;"> |-|</pre>
+<pre style="font-family:courier;"> |-|               |-|</pre>
+<pre style="font-family:courier;"> |-|===============|-|</pre>
+<pre style="font-family:courier;"> |-|    Shaft B    |-|</pre>
+<pre style="font-family:courier;"> |-|             Gear C</pre>
+<pre style="font-family:courier;">Gear A</pre>
+<pre style="font-family:courier;">       Figure 2.1</pre>
+<p></p>
+<p>In this gear-shaft-gear system, gear A turns around 1 time, gear B turns around 1 time too. Because the shaft B will not alter the angular velocity between gear A and C. Moreover, if gear A turns clockwise, gear B will also turn clockwise. I notate this system as (A,18)[B](C,6) where as gear A has 18 teeth and gear C has 6 teeth, and C is connected to A with shaft B.</p>
+<p></p>
+<h3>3. Explanation</h3>
+<p></p>
+<p>Let us combine these two systems together, one is gear-gear system, the other is gear-shaft-gear system. I will write Transmission Formulae first and then I will explain them on by one.</p>
+<p></p>
+<p>3.1. (A)(B)</p>
+<p>This represents a gear A connects to another gear B. From this formula, we can know force passes through left to right, and if A turns clockwise, then B turns counter clockwise. If A turns counter clockwise, B turns clockwise.</p>
+<p></p>
+<p>3.2. [A][B]</p>
+<p>This formula represents shaft A gives it's momentum to shaft B. Since two shafts named separately, it says that shaft A does not directly connect to shaft B. Therefor shaft A on this occasion cannot deliver momentum to B. Unless we write [A][A] is the way that shaft A passes it's momentum from one side to another side no matter a angular velocity equal universal joint splits A or a flange splits A, A gives a constant angular velocity from the left side of this formula to the right. Let us consider more subtly from a turbo jet engine. In a turbo jet engine, the low pressure compressor connects to the low pressure turbine with shaft [A] giving engine speed N1. And the high pressure compressor connects to the high pressure turbine with shaft [B] giving speed N2. N1 is not equal to N2 because shaft A sockets shaft B in this way. See figure 3.2 which represents two separate formula (C)[A](D) and (E)[B][F] where as the inner shaft [A] doesn't affect the outer shaft [B] at all.</p>
+<p></p>
+<pre style="font-family:courier;"> |-|</pre>
+<pre style="font-family:courier;"> |-| |-|                   |-|</pre>
+<pre style="font-family:courier;"> |-| |-|_______________|-| |-|</pre>
+<pre style="font-family:courier;"> |-|=======================|-| Shaft A</pre>
+<pre style="font-family:courier;"> |-| |-|---------------|-| |-|</pre>
+<pre style="font-family:courier;"> |-| |-|    Shaft B  Gear F|-|</pre>
+<pre style="font-family:courier;"> |-| Gear E                Gear D</pre>
+<pre style="font-family:courier;">Gear C</pre>
+<pre style="font-family:courier;">           Figure 3.2</pre>
+<p></p>
+<p></p>
+<p>3.3. (A)[B]</p>
+<p>This formula represents gear A rigidly connects to shaft B. Gear A can be welded to shaft B. Gear A can either connect to shaft B by a spline. Gear A can also be a part for shaft B, that is (A) and [B] are lathe processed from one material. Therefor (A) and [B] share a same angular velocity when they are working. Furthermore, (A) rotates with [B] together in a same direction.</p>
+<p></p>
+<p>3.4. [A](B)</p>
+<p>This formula represents a same way to formula 3.3 that shaft [A] connects to gear (B) comparatively.</p>
+<p></p>
+<p>3.5. (A,18)(B,6)(C,12)</p>
+<p>Let us consider this 3-gear-combination and I will handout Transmission Formula Type II after explanation. (A,18) says gear A has 18 teeth. (B,6) says gear B has 6 teeth. So gear A rotates for 1 round made (B) rotates 3 rounds. We say A and B has a transmission ratio of 18/6=3.0 We give the number of teeth an integer for each gear, and a decimal number for this ratio usually kept a precision to 0.1 Since gear B has 6 teeth and gear C has 12 teeth, thus gear A rotates 2 rounds made C rotates 1 round. We say gear B and C has a ratio of 6/12=0.5 Here goes Transmission Formula Type II. 3.0 * 0.5 delineates a 3-gear-combination such that A and B give ratio 3.0 and B, C give 0.5 for (A)(B)(C). Furthermore, (A) and (B) have contradictory rotation direction, (B) and (C) have contradictory rotation direction, while (A) and (C) share a same rotation direction. From left to right of this formula, if we turn (A) 2 rounds, (C) turns 3 rounds, since 2 * 3.0 * 0.5 = 3 We deduct gear B from Transmission Formula Type II 3.0 * 0.5 to 1.5 and it says a (A,18)(B,6)(C,12) system is equivalent to a (A,3)(B,2) system. An (A,3)(B,2) system has an exact ratio of 1.5 Note that the number of teeth of a gear must be integral, because we don't have a decimal number teeth gear. For example, we don't say this gear has 3.5 teeth.</p>
+<p></p>
+<p>3.6. (A)(B)(A)</p>
+<p>This formula says gear A drives gear B, and gear B gives momentum back to gear A. Formula 3.6 is not possible for most cases but it is rational, since system (A)(B) inverted A's direction and (B)(A) inverted it again and backed to A's direction. Consider we use a soft shaft(steel rope) to connect (A) and (B). This makes formula 3.6 possible.</p>
+<p></p>
+<p>3.X7. (A)(B)(C)(A)</p>
+<p>Formula 3.X7 is absolutely not possible, because if (A) rotates clockwise, (B) rotates counter clockwise, then (C) rotates clockwise. (C)'s direction contradicts (A)'s, a clockwise rotating gear cannot pass it's momentum to another clockwise rotating gear, so we cannot deliver (C)'s momentum directly back to (A). We may assemble this system, however, (A)(B)(C)(A) locks up and will never turn a little bit.</p>
+<p></p>
+<p>3.8X. (A)(B)(C)(D)(A)</p>
+<p>Formula 3.8X is possible, since A turns clockwise, B turns backwards, C turns clockwise, D turns counter clockwise that makes possible to transmit A's momentum back to A. Note that (A,4)(B,3)(C,2)(D,1)(A) is not possible. Because after we write this into Transmission Formula Type II we got 4/3 * 1.5 * 1.0 After deduction we got 4/3 * 1.5 * 1.0 = 2.0 In order to connect (A)'s momentum back to (A). We must keep this ratio into exact 1.0, because (A) turns 1 round must make (D) to turn 1 round so that we can connect (D) back to (A)</p>
+<p></p>
+<p>3.9. (A)[B](C)</p>
+<p>Formula 3.9 says gear (A) and gear (B) are connected together by a shaft. So (A) rotates with (C) together with a same direction and a same angular velocity.</p>
+<p></p>
+<p>3.10. [A](B)[C]</p>
+<p>Formula 3.10 says shaft [A] connects to gear (B) and connects to shaft [C]. Shaft [A] and [C] share a same rotation direction when this system works. Gear (B) is not effective at all in this system. We can deduct [A](B)[C] to [A] or [C].</p>
+<p></p>
+<p>3.11. (A,18)(B,6)[C][C][C](D,12)(E,4)[F](G,24)[H]</p>
+<p>Let us make this comprehensive calculation.</p>
+<p>Question 1. If we rotate gear (A) counter clockwise, what is the rotation direction that shaft [H] outputted?</p>
+<p>Solution:</p>
+<p>Scan formula 3.11 from left to right, (A)(B) inverts the input direction. [C] keeps (B)'s direction to (D). (D)(E) inverts (D)'s direction again. [F] follows (E)'s direction. System [F](G,24)[H] can be deducted into [H], since [F] follows [E] and [H] follows [F]. We can know if gear (A) rotates counter clockwise, shaft [H] will follow (A)'s direction, that is shaft [H] turns counter clockwise.</p>
+<p></p>
+<p>Question 2. Tally the ratio of this system. If A turns 1 round, how many rounds will gear G turn?</p>
+<p>Solution 1:</p>
+<p>(A,18)(B,6) gives 18/6 = 3.0</p>
+<p>[C] keeps 3.0</p>
+<p>(D,12)(E,4) gives 12/4 = 3.0</p>
+<p>3.0 * 3.0 = 9.0</p>
+<p>Therefor, A turns 1 round, F turns 9 rounds, G turns 9 rounds.</p>
+<p></p>
+<p>Solution 2:</p>
+<p>Consider (A,18)(B,6)[C][C][C](D,12)(E,4)[F](G,24)[H], we have:</p>
+<p>A turns 1 round,  B turns 3 rounds.</p>
+<p>B turns 3 rounds, D turns 3 rounds.</p>
+<p>D turns 3 rounds, E turns 9 rounds.</p>
+<p>E turns 9 rounds, F turns 9 rounds.</p>
+<p>F turns 9 rounds, G turns 9 rounds.</p>
+<p>(18/6)*(12/4)=(3.0*12)/4=36/4=9</p>
+<p>Therefor, A turns 1 round, G turns 9 rounds in the same direction to A.</p>
+<p></p>
+<h3>4. Conclusion</h3>
+<p></p>
+<p>Transmission Formula is a way to display the transmission relation of a mechanic structure for gears and shafts in a gear box. It can also describe the total transmission ratio from an input shaft to an output one. Machinist read a transmission formula from left to right to understand the mechanic structure and tally the final transmission ratio during designing a gear box or clarifying the intricacy for gears and shafts. In a transmission formula, (G, 20) represents a gear named G and it has 20 teeth. [S] represents a shaft named S. A combination of gears like (A)(B) means gear A and B meshes to deliver momentum from A to B. A combination of gears and shafts reflects how a group of gear works. A gear box usually contains one or more transmission formulae for different shift stats.</p>
+<p></p>
+<p>Transmission Formula Type II is another form of formula which is calculated from the above-mentioned Transmission Formula Type I. It is used to directly tally the transmission ratio of a set of gears of a device.</p>
+<p></p>
+<p>In reality, for automobiles, an engine gives torque out. If this car has an automatic transmission, engine outputted torque directly injects to a hydraulic torque converter and gives the torque in to a planet gear box. If this car has a manual transmission, engine outputted torque firstly injects to a clutch and then to a gear box. For helicopters, engines give power to a main retarder which usually contains a series of planet gears. Transmission Formula can be used to calculate the gear box input-output ratio for these devices.</p>
+<p></p>
+<h3>5. Practice</h3>
+<p></p>
+<img src="../pictures/ca15gearbox.jpg">
+<p>The above diagram shows the gear box of CA15 type vehicle. The left diagram shows its structure, the right one is its scheme.</p>
+<p>1. Try to explain how reverse gear works.</p>
+<p>Solution:</p>
+<p>Draw the transmission formula of the left diagram of reverse gear:</p>
+<p>[1](2)(18)[19](13)(14)[14](11)(8)[9]</p>
+<p>Notate each direction of each gear and shaft in the above transmission formula:</p>
+<pre style="font-family:courier;">[1](2)(18)[19](13)(14)[14](11)(8)[9]</pre>
+<pre style="font-family:courier;"> +  +  -   -   -   +   +   +   -  -</pre>
+<p>We can see a positive rotation goes into shaft [1], a negative rotation goes out of shaft [9].</p>
+<p></p>
+<p>2. Answer whether the right scheme shows the exact principle of the left diagram.</p>
+<p>Draw the transmission formula of the right scheme of reverse gear:</p>
+<p>[1](2)(18)[19](13)(14)[14](11)(12)[19](10)(8)[9]</p>
+<p>Notate each direction of each gear and shaft in the above transmission formula:</p>
+<pre style="font-family:courier;">[1](2)(18)[19](13)(14)[14](11)(12)[19](10)(8)[9]</pre>
+<pre style="font-family:courier;"> +  +  -   -   -   +   +   +   -   -   -   +  +</pre>
+<p>We can see a positive rotation goes into shaft [1], a positive rotation goes out of shaft [9].</p>
+<p>Therefor, the right scheme cannot show the equivalent reverse gear of the left diagram.</p>
+<p></p>
+<small>Oct 22 2026 John Cage</small>
+</body>
+</html>
+
